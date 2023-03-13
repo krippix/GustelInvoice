@@ -1,0 +1,6 @@
+{
+    "customers": "CREATE TABLE customers(cnr TEXT PRIMARY KEY, name TEXT NOT NULL, surname TEXT NOT NULL, phone TEXT, mail TEXT, address TEXT NOT NULL, addition TEXT, postcode INTEGER, city TEXT)",
+    "invoices": "CREATE TABLE invoices(inr TEXT PRIMARY KEY, cnr TEXT, idate DATE, total REAL, FOREIGN KEY (cnr) REFERENCES customers(cnr))",
+    "positions": "CREATE TABLE positions(pnr INTEGER, inr TEXT, description TEXT, amount REAL, total REAL, date DATE, FOREIGN KEY inr REFERENCES invoices(inr), PRIMARY KEY (pnr,inr))",
+    "items": "CREATE TABLE items(itnr INTEGER, description TEXT, price REAL)"
+}
